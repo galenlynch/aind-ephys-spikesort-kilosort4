@@ -12,3 +12,6 @@ RUN pip install -U --no-cache-dir \
     dartsort==0.5.26 \
     scipy==1.17.1 \
     spikeinterface[full]==0.104.7
+
+COPY postInstall /
+RUN /postInstall
