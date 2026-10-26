@@ -2,6 +2,7 @@
 set -e
 
 # Kilosort fork commit whose assign_iclust is chunked over spikes, so clustering fits in GPU memory on long,
-# dense recordings. No dependencies: the base image's torch and CUDA stay as built.
-pip install --no-cache-dir --no-deps \
+# dense recordings. No dependencies: the base image's torch and CUDA stay as built. The fork has no tags, so
+# setuptools-scm would version it 0.1.dev and fail SpikeInterface's kilosort version check.
+SETUPTOOLS_SCM_PRETEND_VERSION=4.1.7+chunked.1c482f4 pip install --no-cache-dir --no-deps \
     git+https://github.com/AllenNeuralDynamics/Kilosort.git@1c482f42da258175428740a477f7bb9d7ca16df5
